@@ -10,7 +10,8 @@ import startRounded from "../assets/icons/star-rounded.svg";
 import { Link } from "react-router-dom";
 
 const Product = () => {
-  const { addToCart, fakeData, getTotalCartItems } = useContext(ShopContext);
+  const { addToCart, filter, fakeData, getTotalCartItems } =
+    useContext(ShopContext);
   console.log(fakeData);
   const [toggle, setToggle] = useState(false);
   const [maxPrice, setMaxPrice] = useState(250);
@@ -21,13 +22,13 @@ const Product = () => {
   const [query, setQuery] = useState("");
 
   // console.log(toggle);
-  const [currentPage, setCurrentPage] = useState(1);
-  const recordsPerPage = 5;
-  const firstIndex = (currentPage - 1) * recordsPerPage;
-  const lastIndex = currentPage * recordsPerPage - 1;
-  const records = fakeData.slice(firstIndex, lastIndex + 1);
-  const npage = Math.ceil(fakeData.length / recordsPerPage);
-  const numbers = [...Array(npage).keys()].map((num) => num + 1);
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const recordsPerPage = 5;
+  // const firstIndex = (currentPage - 1) * recordsPerPage;
+  // const lastIndex = currentPage * recordsPerPage - 1;
+  // const records = fakeData.slice(firstIndex, lastIndex + 1);
+  // const npage = Math.ceil(fakeData.length / recordsPerPage);
+  // const numbers = [...Array(npage).keys()].map((num) => num + 1);
 
   // const handleInputChange = (event) => {
   //   setQuery(event.target.value);
@@ -74,21 +75,21 @@ const Product = () => {
     return [];
   }
 
-  function prePage() {
-    if (currentPage !== 1) {
-      setCurrentPage(currentPage - 1);
-    }
-  }
+  // function prePage() {
+  //   if (currentPage !== 1) {
+  //     setCurrentPage(currentPage - 1);
+  //   }
+  // }
 
-  function nextPage() {
-    if (currentPage !== npage) {
-      setCurrentPage(currentPage + 1);
-    }
-  }
+  // function nextPage() {
+  //   if (currentPage !== npage) {
+  //     setCurrentPage(currentPage + 1);
+  //   }
+  // }
 
-  function changePage(id) {
-    setCurrentPage(id);
-  }
+  // function changePage(id) {
+  //   setCurrentPage(id);
+  // }
 
   return (
     <div className=" container m-auto">
@@ -354,7 +355,7 @@ const Product = () => {
               </div>
             </div>
 
-            <nav className="mt-[35px] mb-[100px] mx-auto text-center w-full">
+            {/* <nav className="mt-[35px] mb-[100px] mx-auto text-center w-full">
               <ul className="inline-flex -space-x-px text-sm">
                 <li>
                   <Link
@@ -391,7 +392,7 @@ const Product = () => {
                   </Link>
                 </li>
               </ul>
-            </nav>
+            </nav> */}
           </div>
         </div>
       </section>

@@ -1,34 +1,4 @@
 {
   "user": [
-    {
-      "fname": "Shahriyor",
-      "lname": "Shahriyor",
-      "email": "shahriyor@nextmail.com",
-      "number": "89645",
-      "address": "sdfg",
-      "city": "Tashkent",
-      "code": "854",
-      "id": 1
-    },
-    {
-      "fname": "Shahriyor",
-      "lname": "Shahriyor",
-      "email": "shahriyor@nextmail.com",
-      "number": "89645",
-      "address": "sddfhg",
-      "city": "Samarkand",
-      "code": "dfc",
-      "id": 2
-    },
-    {
-      "fname": "Shahriyor",
-      "lname": "Shahriyor",
-      "email": "shahriyor@nextmail.com",
-      "number": "89645",
-      "address": "edijsk",
-      "city": "Tashkent",
-      "code": "sdj",
-      "id": 3
-    }
   ]
 }

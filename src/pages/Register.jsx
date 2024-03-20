@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import singapore from "../assets/images/Singaporean.png";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import Toastify from "toastify-js";
 import "toastify-js/src/toastify.css";
 
 const Register = () => {
+  toast({
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light"
+    });
   const [fname, setFname] = useState("");
   const [lname, setLname] = useState("");
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [cfrPssword, setCfrPassword] = useState("");
   const [number, setNumber] = useState("");
   const [address, setAddress] = useState("");
   const [city, setCity] = useState("");
@@ -17,47 +28,47 @@ const Register = () => {
 
   const IsValidate = () => {
     let isproceed = true;
-    let errormessage = 'Ma\'lumot bo\'sh joydan iborat bo\'lmasligi kerak: ';
+    let errormessage = "Ma'lumot bo'sh joydan iborat bo'lmasligi kerak: ";
 
-    if (fname === null || fname === '') {
+    if (fname === null || fname === "") {
       isproceed = false;
-      errormessage += 'First Name, ';
+      errormessage += "First Name, ";
     }
 
-    if (lname === null || lname === '') {
+    if (lname === null || lname === "") {
       isproceed = false;
-      errormessage += 'Last Name, ';
+      errormessage += "Last Name, ";
     }
 
-    if (email === null || email === '') {
+    if (email === null || email === "") {
       isproceed = false;
-      errormessage += 'Email, ';
+      errormessage += "Email, ";
     }
 
-    if (number === null || number === '') {
+    if (number === null || number === "") {
       isproceed = false;
-      errormessage += 'Number, ';
+      errormessage += "Number, ";
     }
 
-    if (address === null || address === '') {
+    if (address === null || address === "") {
       isproceed = false;
-      errormessage += 'Address, ';
+      errormessage += "Address, ";
     }
 
-    if (city === null || city === '') {
+    if (city === null || city === "") {
       isproceed = false;
-      errormessage += 'City, ';
+      errormessage += "City, ";
     }
 
-    if (code === null || code === '') {
+    if (code === null || code === "") {
       isproceed = false;
-      errormessage += 'Code, ';
+      errormessage += "Code, ";
     }
 
     if (!isproceed) {
       toast.warning(errormessage.slice(0, -2));
     } else {
-      // toast.success("Siz muvaffaqiyatli ro'yxatdan o'tdingiz ✅ :)");
+      toast.success("Siz muvaffaqiyatli ro'yxatdan o'tdingiz ✅");
     }
 
     return isproceed;
@@ -66,20 +77,6 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (IsValidate()) {
-      Toastify({
-        text: "Login successfully completed",
-        duration: 3000,
-        destination: "https://github.com/apvarun/toastify-js",
-        newWindow: true,
-        close: true,
-        gravity: "top",
-        position: "right",
-        stopOnFocus: true,
-        style: {
-          background: "linear-gradient(to right, #4ed25b, #659415)",
-        },
-        onClick: function () {},
-      }).showToast();
       let regobj = { fname, lname, email, number, address, city, code };
       fetch("http://localhost:8000/user", {
         method: "POST",
@@ -87,22 +84,35 @@ const Register = () => {
         body: JSON.stringify(regobj),
       })
         .then((res) => {
-          // toast.success("Siz muvaffaqiyatli ro'yxatdan o'tdingiz ✅ :)");
-          navigate('/login');
+          toast.success("Siz muvaffaqiyatli ro'yxatdan o'tdingiz ");
+          navigate("/login");
         })
         .catch((err) => {
-          // toast.error("Nimadur xato ketdi ❌ :( Qaytadan urinib ko'ring");
+          toast.error("Nimadur xato ketdi Qaytadan urinib ko'ring");
         });
     }
   };
 
-
   return (
     <section className="flex items-center justify-center">
       <div
-        className="container ps-[31px] pe-[31px] w-[600px] h-[688.88px] bg-white rounded-[5px]"
-        style={{ border: "1px solid #E9E9E9" }} 
+        className="container my-14 ps-[31px] pe-[31px] w-[600px] h-[788.88px] bg-white rounded-[5px]"
+        style={{ border: "1px solid #E9E9E9" }}
       >
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="light"
+        />
+
+        <ToastContainer />
         <form action="" onSubmit={handleSubmit}>
           <div className="flex items-center justify-center">
             <img src={singapore} alt="" />
@@ -113,7 +123,8 @@ const Register = () => {
               <label className="texts2" htmlFor="firstname">
                 First Name <sup className="errmsg">*</sup>
               </label>
-              <input required
+              <input
+                required
                 type="text"
                 name="name"
                 placeholder="Enter Your First Name"
@@ -127,7 +138,8 @@ const Register = () => {
               <label className="texts2" htmlFor="lastname">
                 Last Name <sup className="errmsg">*</sup>
               </label>
-              <input required
+              <input
+                required
                 type="text"
                 name="name"
                 placeholder="Enter Your Last Name"
@@ -143,7 +155,8 @@ const Register = () => {
               <label className="texts2" htmlFor="email">
                 Email <sup className="errmsg">*</sup>
               </label>
-              <input required
+              <input
+                required
                 type="email"
                 name="email"
                 placeholder="Enter Your email"
@@ -157,7 +170,8 @@ const Register = () => {
               <label className="texts2" htmlFor="phone">
                 Phone Number <sup className="errmsg">*</sup>
               </label>
-              <input required
+              <input
+                required
                 type="text"
                 name="number"
                 placeholder="Enter Your phone number"
@@ -168,11 +182,44 @@ const Register = () => {
               />
             </div>
           </div>
+          <div className="flex items-center gap-[24px]">
+            <div>
+              <label className="texts2" htmlFor="email">
+                Password <sup className="errmsg">*</sup>
+              </label>
+              <input
+                required
+                type="password"
+                name="password"
+                placeholder="Enter Your Password"
+                className="w-[257px] h-[41.38px] outline-none rounded-[5px] p-3 mt-[9px] mb-[29px]"
+                style={{ border: "1px solid #E9E9E9" }}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+              />
+            </div>
+            <div>
+              <label className="texts2" htmlFor="phone">
+                Confirm Password <sup className="errmsg">*</sup>
+              </label>
+              <input
+                required
+                type="text"
+                name="number"
+                placeholder="Enter Your Confirm Password"
+                className="w-[257px] h-[41.38px] outline-none rounded-[5px] p-3 mt-[9px] mb-[29px]"
+                style={{ border: "1px solid #E9E9E9" }}
+                value={cfrPssword}
+                onChange={(e) => setCfrPassword(e.target.value)}
+              />
+            </div>
+          </div>
           <div>
             <label className="texts2" htmlFor="address">
               Address <sup className="errmsg">*</sup>
             </label>
-            <textarea required
+            <textarea
+              required
               placeholder="Enter your address"
               className="w-[538px] h-[60px] outline-none rounded-[5px] p-3 mt-[9px]"
               style={{ border: "1px solid #E9E9E9" }}
@@ -186,7 +233,8 @@ const Register = () => {
                 <label className="texts2" htmlFor="city">
                   City <sup className="errmsg">*</sup>
                 </label>
-                <select required
+                <select
+                  required
                   type="text"
                   placeholder="City"
                   className="w-[257px] h-[41.38px] p-1 mt-2 bg-[#EFEFEF] text-[#777] rounded-[5px] outline-none mb-[29px]"
@@ -212,7 +260,8 @@ const Register = () => {
                 <label className="texts2" htmlFor="city">
                   Post Code
                 </label>
-                <input required
+                <input
+                  required
                   type="text"
                   placeholder="Post Code"
                   className="mb-[29px] mt-2 w-[257px] h-[41.38px] p-3 rounded-[5px] bg-white outline-none"
@@ -227,7 +276,8 @@ const Register = () => {
                 <label className="texts2" htmlFor="city">
                   Country <sup className="errmsg">*</sup>
                 </label>
-                <select required
+                <select
+                  required
                   type="text"
                   placeholder="City"
                   className="w-[257px] h-[41.38px] p-1 mt-2 bg-[#EFEFEF] text-[#777] rounded-[5px] outline-none mb-[29px]"
@@ -253,7 +303,8 @@ const Register = () => {
                 <label className="texts2" htmlFor="city">
                   Region State <sup className="errmsg">*</sup>
                 </label>
-                <input required
+                <input
+                  required
                   type="text"
                   placeholder="Region/State"
                   className="w-[257px] h-[41.38px] p-3 mt-2 bg-[#EFEFEF] rounded-[5px] outline-none"

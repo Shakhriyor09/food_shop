@@ -1,68 +1,65 @@
-import React from "react";
+import React, { useContext } from "react";
 import checkImg1 from "../assets/images/Link → 12.jpg.png";
-import checkImg2 from "../assets/images/Link → 10.jpg.png";
+
 import star from "../assets/icons/div.cr-pro-rating.svg";
 import payment from "../assets/icons/payment.png.svg";
+import ShopContext from "../context/ShopContext";
 const Checkout = () => {
+  const { fakeData, cartItems , getTotalCartAmount } = useContext(ShopContext);
   return (
     <section className="checkout">
-      <div className="container ps-[312px] pe-[312px] flex gap-[24px] justify-center">
+      <div className="container my-14 ps-[312px] pe-[312px] flex gap-[24px] justify-center">
         <main>
-          <section className="summary">
-            <div
-              className="container w-[416px] h-[416px] p-[16px] rounded-[5px] bg-white"
-              style={{ border: "1px solid #E9E9E9" }}
-            >
-              <h2 style={{ fontWeight: "600" }}>Summary</h2>
-              <div className="flex items-center justify-between mb-[10px] mt-[15px]">
-                <p className="check">Sub-Total</p>
-                <h3 className="text-[#000]">$80.00</h3>
-              </div>
-              <div className="flex items-center justify-between mb-[16px]">
-                <p className="check">Delivery Charges</p>
-                <h3 className="text-[#000]">$80.00</h3>
-              </div>
-              <hr />
-              <div className="flex items-center justify-between mt-[20px] mb-[40px]">
-                <h2 className="" style={{ fontWeight: "600" }}>
-                  Total Amount
-                </h2>
-                <h3 style={{ fontWeight: "600" }}>$80.00</h3>
-              </div>
-              <div className="flex gap-[15px]">
-                <img src={checkImg2} alt="" />
-                <div>
-                  <p>Dates Value Pack Pouch</p>
-                  <img src={star} alt="" />
-                  <div className="flex gap-[5px]">
-                    <h4
-                      className="text-[#64B496]"
-                      style={{ fontWeight: "700" }}
-                    >
-                      $120.25{" "}
-                    </h4>
-                    <p className="check">$123.25</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex gap-[15px] mt-[23px]">
-                <img src={checkImg1} alt="" />
-                <div>
-                  <p>Smoked Honey Spiced Nuts</p>
-                  <img src={star} alt="" />
-                  <div className="flex gap-[5px]">
-                    <h4
-                      className="text-[#64B496]"
-                      style={{ fontWeight: "700" }}
-                    >
-                      $120.25{" "}
-                    </h4>
-                    <p className="check">$123.25</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-              </section>
+        <section className="summary">
+        <div
+          className="container w-[416px] p-[16px] rounded-[5px] bg-white"
+          style={{ border: "1px solid #E9E9E9" }}
+        >
+          <h2 style={{ fontWeight: "600" }}>Summary</h2>
+          <div className="flex items-center justify-between mb-[10px] mt-[15px]">
+            <p className="check">Sub-Total</p>
+            <h3 className="text-[#000]">{getTotalCartAmount}</h3>
+          </div>
+          <div className="flex items-center justify-between mb-[16px]">
+            <p className="check">Delivery Charges</p>
+            <h3 className="text-[#000]">$0.00</h3>
+          </div>
+          <hr />
+          <div className="flex items-center justify-between mt-[20px] mb-[40px]">
+            <h2 className="" style={{ fontWeight: "600" }}>
+              Total Amount
+            </h2>
+            <h3 style={{ fontWeight: "600" }}>{getTotalCartAmount}</h3>
+          </div>
+          <div className="gap-[15px]">
+            {fakeData.map((item) => {
+              if (cartItems[item.id] > 0) {
+                return (
+                  <React.Fragment key={item.id}>
+                    <img src={item.image} alt="" className=" w-12" />
+                    <div>
+                      <p>Dates Value Pack Pouch</p>
+                      <img src={star} alt="" />
+                      <div className="flex gap-[5px]">
+                        <h4
+                          className="text-[#64B496]"
+                          style={{ fontWeight: "700" }}
+                        >
+                          $120.25{" "}
+                        </h4>
+                        <p className="check">$123.25</p>
+                      </div>
+                    </div>
+                  </React.Fragment>
+                );
+              }
+              return null;
+            })}
+          </div>
+        </div>
+</section>
+
+
           <section className="delivery mt-[30px]">
             <div
               className="container w-[416px] h-[340px] rounded-[5px] p-[16px] bg-[#FFF]"
@@ -252,22 +249,42 @@ const Checkout = () => {
               </div>
               <div>
                 <label htmlFor="address">Address</label>
-                <textarea className="w-[808px] h-[50px] rounded-[5px] mt-2 outline-none p-3" placeholder="Address Line 1" style={{border: '1px solid #E9E9E9'}}></textarea>
+                <textarea
+                  className="w-[808px] h-[50px] rounded-[5px] mt-2 outline-none p-3"
+                  placeholder="Address Line 1"
+                  style={{ border: "1px solid #E9E9E9" }}
+                ></textarea>
               </div>
               <div className="flex items-center gap-8">
                 <div>
-                    <label htmlFor="name">City <sup className="errmsg">*</sup></label>
-                    <input type="text" name="dropdown" placeholder="City" className="outline-none w-[342px] h-[48px] rounded-[5px] p-3  mt-2" style={{border: '1px solid #E9E9E9'}} />
+                  <label htmlFor="name">
+                    City <sup className="errmsg">*</sup>
+                  </label>
+                  <input
+                    type="text"
+                    name="dropdown"
+                    placeholder="City"
+                    className="outline-none w-[342px] h-[48px] rounded-[5px] p-3  mt-2"
+                    style={{ border: "1px solid #E9E9E9" }}
+                  />
                 </div>
                 <div>
-                    <label htmlFor="name">Post Name</label>
-                    <input type="text" name="name" className="outline-none w-[388px] h-[50px] rounded-[5px] p-3  mt-2" style={{border: '1px solid #E9E9E9 '}} placeholder="Post Code" />
+                  <label htmlFor="name">Post Name</label>
+                  <input
+                    type="text"
+                    name="name"
+                    className="outline-none w-[388px] h-[50px] rounded-[5px] p-3  mt-2"
+                    style={{ border: "1px solid #E9E9E9 " }}
+                    placeholder="Post Code"
+                  />
                 </div>
               </div>
             </div>
           </section>
-          <div className=" text-end">
-          <button className="w-[140px] h-[40px] rounded-[5px] bg-[#F53E32] mt-[30px] text-white">Place Order</button>
+          <div className="text-end">
+            <button className="w-[140px] h-[40px] rounded-[5px] bg-[#F53E32] mt-[30px] text-white">
+              Place Order
+            </button>
           </div>
         </div>
       </div>

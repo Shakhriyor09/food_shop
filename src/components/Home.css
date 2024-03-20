@@ -1,0 +1,33 @@
+.box {
+  background: rgba(230, 230, 230, 1);
+}
+.cart1 {
+  background-image: url("../assets/images/banner-1.png.png");
+  background-size: 100% 100%;
+}
+.cart2 {
+  background-image: url("../assets/images/banner-2.png.png");
+  background-size: 100% 100%;
+}
+.cart3 {
+  background-image: url("../assets/images/banner-3.png.png");
+  background-size: 100% 100%;
+}
+.btn {
+  background: rgba(245, 62, 50, 1);
+}
+.product {
+  background-image: url("../assets/images/fruit.png");
+  background-size: 100% 100%;
+}
+.daily {
+  background-image: url("https://s3-alpha-sig.figma.com/img/1ccb/f7a8/50f0672ba689774edbd11c652a5b06ae?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nOGy8mTu3ytBaWJymdUbjRr9RCUc6TOOwaLSCaLQAB2qXyr41U-w8AZpGa~X0bV59avM4x4ijEXl2dY1qkFK9y-hqQoDiOeFjX~GHUq~BClSpxza~efKvH7BqKsD9mmqRjI~Bre5f3E5L7mJGzsr5I6A4euoVyJmx2zfTgMYgrVy5V2DyR7-HyeBYX2c0fp7nwdSLR~65Opyq~t3nmse89N1Q1I5ZNkHieCPA6Dlrxw91PyZaXoVwfGErj2uxeYujwVfSUkcucEqsAb6of7UtQ12-F4wnbXd1aLv03DU5pfdi8fegT1odXpnLlNLNgXlA6TCh-EdqsNisughvuSb5g__");
+  background-size: 100% 100%;
+}
+.daily2 {
+  background-image: url("../assets/images/dailyproduct.png");
+  background-size: 100% 100%;
+}
+.font-family {
+  font-family: "Quicksand", sans-serif;
+}

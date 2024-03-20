@@ -6,6 +6,7 @@ export function CartProvider(props) {
   const [data, setData] = useState([]);
   const [cartItems, setCartItems] = useState({});
   const [nums, setNums] = useState(0);
+  const [search, setSearch] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -16,6 +17,7 @@ export function CartProvider(props) {
         }
         const jsonData = await response.json();
         setData(jsonData);
+        setSearch(jsonData);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -28,6 +30,16 @@ export function CartProvider(props) {
     const newCount = (cartItems[itemId] || 0) + count;
     updateCartItems(itemId, newCount);
     setNums(0);
+  };
+
+  const filter = (event) => {
+    setTimeout(() => {
+      setSearch(
+        data.filter((searching) =>
+          searching.title.toLowerCase().includes(event.target.value)
+        )
+      );
+    }, 500); 
   };
 
   const updateCartItems = (itemId, count) => {
@@ -80,7 +92,9 @@ export function CartProvider(props) {
   };
 
   const contextValue = {
-    fakeData: data,
+    filter,
+    fakeData: search,
+    // fakeData: data,
     addToCart,
     nums,
     cartItems,

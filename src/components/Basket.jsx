@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import ShopContext from "../context/ShopContext";
 import { MdDeleteOutline } from "react-icons/md";
+import { Link } from "react-router-dom";
 const Basket = () => {
   const {
     fakeData,
@@ -17,7 +18,7 @@ const Basket = () => {
 
   return (
     <div>
-      <div className=" overflow-x-auto">
+      <div className=" overflow-x-auto mt-[100px]">
         <table className="w-full text-sm text-left text-[#444]">
           <thead className="bg-[#E9E9E9]">
             <tr className="text-[15px]  font-medium leading-[15px]">
@@ -98,6 +99,12 @@ const Basket = () => {
             })}
           </tbody>
         </table>
+        <div className="flex justify-between mt-[41px]">
+          <Link to={"/products"}>Continue Shopping</Link>
+          <button className="px-[20px] text-center py-[11px] rounded-[5px] bg-[#F53E32]  text-white">
+            Check Out
+          </button>
+        </div>
       </div>
     </div>
   );

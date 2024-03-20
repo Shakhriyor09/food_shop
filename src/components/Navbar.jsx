@@ -7,7 +7,7 @@ import img1 from "../assets/images/Group 475.png";
 import menu from "../assets/images/free-icon-menu-9386236.png";
 import ShopContext from "../context/ShopContext";
 const Navbar = () => {
-  const { getTotalCartItems } = useContext(ShopContext);
+  const { getTotalCartItems, filter } = useContext(ShopContext);
   return (
     <div className="w-full bg-white">
       <div className="border p-[15px] shadow-md drop-shadow-2xl flex justify-around ">
@@ -55,6 +55,7 @@ const Navbar = () => {
             placeholder="Search For items..."
             type="text"
             className="rounded-s-lg h-[40px] px-5 border border-green-700 w-[400px]"
+            onChange={filter}
           />
           <button className="text-sm border border-green-700 bg-white h-[40px] px-4">
             All Categories{" "}
@@ -80,19 +81,19 @@ const Navbar = () => {
             <img width={20} height={5} src={wishlist} alt="" />
             <p>Wishlist</p>
           </div>
-         <Link to={'/basket'}>
-         <div className="flex justify-between w-[22px] h-[22px] relative gap-2">
-            <img width={20} height={5} src={cart} alt="" />
-            <p>Cart</p>
-            <div className="w-[22px] h-[22px] relative">
-              <p className=" w-[17px] h-[17px] flex justify-center items-center rounded-full bg-[#F53E32] absolute top-[-8px] right-[34px] text-white">
-                {" "}
-                {getTotalCartItems()}
-              </p>
-              <span className="text-[22px]"></span>
+          <Link to={"/basket"}>
+            <div className="flex justify-between w-[22px] h-[22px] relative gap-2">
+              <img width={20} height={5} src={cart} alt="" />
+              <p>Cart</p>
+              <div className="w-[22px] h-[22px] relative">
+                <p className=" w-[17px] h-[17px] flex justify-center items-center rounded-full bg-[#F53E32] absolute top-[-8px] right-[34px] text-white">
+                  {" "}
+                  {getTotalCartItems()}
+                </p>
+                <span className="text-[22px]"></span>
+              </div>
             </div>
-          </div>
-         </Link>
+          </Link>
         </div>
       </div>
     </div>

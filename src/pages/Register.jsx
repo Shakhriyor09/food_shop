@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import singapore from "../assets/images/Singaporean.png";
 import { ToastContainer, toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
-import "toastify-js/src/toastify.css";
 
 const Register = () => {
   toast({

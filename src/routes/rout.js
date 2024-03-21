@@ -11,6 +11,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Checkout from "../pages/Checkout";
 import { ToastContainer } from "react-toastify";
+import Faq from "../pages/Faq&About/Faq";
+import AboutUs from "../homePageParts/AboutUs";
 
 const rout = () => {
   return (
@@ -23,6 +25,8 @@ const rout = () => {
         <Route path="/basket" element={<Basket />} />
         <Route path="/blog" element={<Blog />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/register" element={<Register/>} />
           <Route path="/checkout" element={<Checkout />} />
       </Routes>

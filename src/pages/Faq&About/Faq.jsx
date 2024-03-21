@@ -1,6 +1,11 @@
 import { Accordion, AccordionItem as Item } from "@szhsin/react-accordion";
+<<<<<<< HEAD
 import food from "../../assets/images/Section → 1.jpg.png";
 import chevron from "../../assets/icons/chevron-down.svg"
+=======
+import chevron from "./chevron-down.svg";
+import food from "./Section → 1.jpg.png";
+>>>>>>> b371f6c347239bde1638440402932ca0b13b241d
 
 /**
  * @type {React.ExoticComponent<import('@szhsin/react-accordion').AccordionItemProps>}
@@ -32,7 +37,11 @@ const AccordionItem = ({ header, ...rest }) => (
   />
 );
 
+<<<<<<< HEAD
 export default function Faq() {
+=======
+export default function App() {
+>>>>>>> b371f6c347239bde1638440402932ca0b13b241d
   return (
     <div className="mx-auto my-5 px-20">
       <div className="block md:block sm:block lg:flex gap-5">

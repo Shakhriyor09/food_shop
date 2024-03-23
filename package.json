@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@material-tailwind/react": "^2.1.9",
     "@szhsin/react-accordion": "^1.2.3",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
@@ -16,13 +15,8 @@
     "react-icons": "^5.0.1",
     "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
-    "react-toastify": "^10.0.5"
-=======
-    "tw-elements": "^1.1.0",
-    "tw-elements-react": "^1.0.0-alpha2",
+    "react-toastify": "^10.0.5",
     "web-vitals": "^2.1.4"
->>>>>>> b371f6c347239bde1638440402932ca0b13b241d
   },
   "scripts": {
     "start": "react-scripts start",

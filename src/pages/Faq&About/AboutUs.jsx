@@ -1,9 +1,6 @@
 import React from "react";
-<<<<<<< HEAD
 import food from "../../assets/images/Section → 1.jpg.png";
-=======
 import food from "./Section → 1.jpg.png";
->>>>>>> b371f6c347239bde1638440402932ca0b13b241d
 const AboutUs = () => {
   return (
     <div className="mx-auto px-20 ">
